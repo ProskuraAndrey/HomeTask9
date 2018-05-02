@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BinaryTreeDictionary
 {
-    class CustomDictionary<Tkey, TVal> : IDictionary<Tkey, TVal> where Tkey : IComparable
+   public class CustomDictionary<Tkey, TVal> : IDictionary<Tkey, TVal> where Tkey : IComparable
     {
         # region Helper
         private class TreeItem
