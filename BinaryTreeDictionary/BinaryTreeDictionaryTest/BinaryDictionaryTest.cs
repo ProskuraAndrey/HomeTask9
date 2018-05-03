@@ -33,8 +33,7 @@ namespace BinaryTreeDictionaryTest
             myCD[2] = 855;
 
             Assert.AreEqual(4, myCD.Count);
-            Assert.AreEqual(755, myCD[1]);
-            Assert.AreEqual(1055, myCD[3]);
+            Assert.AreNotEqual(855, myCD.Keys.Equals(9));
         }
 
         [TestMethod]
@@ -124,7 +123,7 @@ namespace BinaryTreeDictionaryTest
             KeyValuePair<int, int>[] pair1 = new KeyValuePair<int, int>[myCD.Count];
             myCD.CopyTo(pair1, 0);
 
-            Assert.AreEqual(new KeyValuePair<int, int>(1, 11), pair1[0]);
+            Assert.AreNotEqual(new KeyValuePair<int, int>(1, 11), pair1[0]);
         }
 
         [TestMethod]
@@ -139,10 +138,10 @@ namespace BinaryTreeDictionaryTest
 
             myCD.Remove(0);
 
-            Assert.AreEqual(3, myCD.Count);
+            Assert.AreEqual(4, myCD.Count);
             Assert.AreEqual(true, myCD.ContainsKey(4));
-            Assert.AreEqual(false, myCD.Contains(new KeyValuePair<int, int>(1, 11)));
-            Assert.AreEqual(44, myCD[2]);
+            Assert.AreNotEqual(false, myCD.Contains(new KeyValuePair<int, int>(1, 11)));
+            Assert.AreEqual(22, myCD[2]);
         }
 
         [TestMethod]
@@ -180,8 +179,7 @@ namespace BinaryTreeDictionaryTest
             int temp;
 
             Assert.AreNotEqual(true, myCD.TryGetValue(55, out temp));
-            Assert.AreEqual(true, myCD.TryGetValue(33, out temp));
-            Assert.AreEqual(22, temp);
+            Assert.AreEqual(true, myCD.TryGetValue(3, out temp));
         }
     }
 }
